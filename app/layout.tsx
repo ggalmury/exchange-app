@@ -3,6 +3,11 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import '@/styles/global.css';
 
+import { cn } from '@/shared/utils/cn';
+
+import ToastProvider from '@/providers/ToastProvider';
+import QueryProvider from '@/providers/QueryProvider';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -25,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={cn('min-h-screen antialiased', geistSans.variable, geistMono.variable)}>
+        <ToastProvider />
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
