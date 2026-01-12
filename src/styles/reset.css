@@ -1,0 +1,11 @@
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input:focus {
+  outline: none;
+}
