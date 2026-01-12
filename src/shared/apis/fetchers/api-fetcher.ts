@@ -4,6 +4,7 @@ import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.o
 import ApiErrorFactory from '@/shared/errors/api/api-error.factory';
 import ApiError from '@/shared/errors/api/api-error';
 import ApiRequestError from '@/shared/errors/client/api-request-error';
+import type { ApiResponse } from '@/shared/models/api-response';
 
 interface ApiFetcherOptions extends BaseFetcherOptions {
   token?: string;
@@ -14,7 +15,7 @@ const apiFetcher = async <T = unknown>({
   method,
   options = {},
   token,
-}: ApiFetcherOptions): Promise<T> => {
+}: ApiFetcherOptions): Promise<ApiResponse<T>> => {
   const normalizedEndpoint = normalizeEndpoint(endpoint);
   const url = `${process.env.API_SERVER_URL}/${normalizedEndpoint}`;
 
@@ -32,20 +33,13 @@ const apiFetcher = async <T = unknown>({
     const response = await fetch(url, requestOptions);
     if (!response.ok) {
       const statusCode = response.status;
-      const body = await parseJsonOrThrow<{ code: string }>(response);
+      const body = await parseJsonOrThrow<ApiResponse<null>>(response);
       const code = body.code;
 
       throw ApiErrorFactory.create(statusCode, code);
     }
 
-    const body = await response.text();
-    if (!body) return null as T;
-
-    try {
-      return JSON.parse(body) as T;
-    } catch {
-      return body as unknown as T;
-    }
+    return await parseJsonOrThrow<ApiResponse<T>>(response);
   } catch (e) {
     if (e instanceof ApiError) throw e;
 
