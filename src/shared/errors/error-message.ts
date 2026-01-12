@@ -6,6 +6,7 @@ export const ERROR_MESSAGE: Record<string, string> = {
   [ClientErrorCode.INITIALIZE_FAILED]: '서비스 초기화에 실패했어요. 잠시 후 다시 시도해 주세요.',
   [ClientErrorCode.API_REQUEST_FAILED]: '요청에 실패했어요. 잠시 후 다시 시도해 주세요.',
   [ClientErrorCode.INVALID_FORM]: '입력 값이 올바르지 않아요. 다시 한번 확인해 주세요.',
+  [ClientErrorCode.RESPONSE_PARSE_FAILED]: '데이터 처리 중 문제가 발생했어요.',
 
   [ApiErrorCode.BAD_REQUEST]: '잘못된 요청입니다.',
   [ApiErrorCode.NOT_FOUND]: '요청한 URL을 찾을 수 없어요.',
