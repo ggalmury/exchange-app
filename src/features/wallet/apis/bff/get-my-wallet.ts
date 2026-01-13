@@ -6,7 +6,7 @@ import type { WalletOverview } from '@/features/wallet/models/wallet.overview';
 const getMyWallet = async (): Promise<Result<WalletOverview>> => {
   const endpoint = '/wallets';
 
-  return await bffFetcher({
+  return await bffFetcher<WalletOverview>({
     endpoint,
     method: 'GET',
   });
