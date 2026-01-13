@@ -12,7 +12,7 @@ export const POST = async (request: NextRequest): Promise<NextResponse<Result<nu
     const requestBody = await parseJsonOrThrow<LoginRequest>(request);
 
     const loginResponse = await fetchLogin(requestBody);
-    const token = loginResponse.data.token;
+    const token = loginResponse.token;
 
     const response = NextResponse.json(success(null), { status: 200 });
 
