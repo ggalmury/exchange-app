@@ -16,7 +16,7 @@ const apiFetcher = async <T = unknown>({
   contentType,
   body,
   token,
-}: ApiFetcherOptions): Promise<ApiResponse<T>> => {
+}: ApiFetcherOptions): Promise<T> => {
   const normalizedEndpoint = normalizeEndpoint(endpoint);
   const url = `${process.env.API_SERVER_URL}/${normalizedEndpoint}`;
 
@@ -41,7 +41,10 @@ const apiFetcher = async <T = unknown>({
       throw ApiErrorFactory.create(statusCode, code);
     }
 
-    return await parseJsonOrThrow<ApiResponse<T>>(response);
+    const body = await parseJsonOrThrow<ApiResponse<T>>(response);
+    const data = body.data;
+
+    return data;
   } catch (e) {
     if (e instanceof ApiError) throw e;
 
