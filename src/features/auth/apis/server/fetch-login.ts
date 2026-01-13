@@ -1,4 +1,3 @@
-import { CONTENT_TYPE_JSON } from '@/shared/apis/constants/content-type';
 import apiFetcher from '@/shared/apis/fetchers/api-fetcher';
 import type { ApiResponse } from '@/shared/models/api-response';
 
@@ -11,10 +10,8 @@ const fetchLogin = async (body: LoginRequest): Promise<ApiResponse<LoginResponse
   return await apiFetcher<LoginResponse>({
     endpoint,
     method: 'POST',
-    options: {
-      headers: { 'Content-type': CONTENT_TYPE_JSON },
-      body: JSON.stringify(body),
-    },
+    contentType: 'application/json',
+    body: JSON.stringify(body),
   });
 };
 

@@ -7,14 +7,19 @@ import { failed, type Result } from '@/shared/models/result';
 const bffFetcher = async <T = unknown>({
   endpoint,
   method,
-  options,
+  contentType,
+  body,
 }: BaseFetcherOptions): Promise<Result<T>> => {
   const normalizedEndpoint = normalizeEndpoint(endpoint);
   const url = `/api/${normalizedEndpoint}`;
 
+  const headers = new Headers();
+  if (contentType) headers.set('Content-type', contentType);
+
   const requestOptions: RequestInit = {
-    ...options,
+    headers,
     method,
+    body,
     cache: 'no-store',
     credentials: 'same-origin',
   };

@@ -1,4 +1,3 @@
-import { CONTENT_TYPE_JSON } from '@/shared/apis/constants/content-type';
 import bffFetcher from '@/shared/apis/fetchers/bff-fetcher';
 import type { Result } from '@/shared/models/result';
 
@@ -10,10 +9,8 @@ const login = async (body: LoginRequest): Promise<Result<null>> => {
   return await bffFetcher({
     endpoint,
     method: 'POST',
-    options: {
-      headers: { 'Content-type': CONTENT_TYPE_JSON },
-      body: JSON.stringify(body),
-    },
+    contentType: 'application/json',
+    body: JSON.stringify(body),
   });
 };
 

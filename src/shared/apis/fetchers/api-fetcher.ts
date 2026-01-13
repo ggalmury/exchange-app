@@ -13,19 +13,21 @@ interface ApiFetcherOptions extends BaseFetcherOptions {
 const apiFetcher = async <T = unknown>({
   endpoint,
   method,
-  options = {},
+  contentType,
+  body,
   token,
 }: ApiFetcherOptions): Promise<ApiResponse<T>> => {
   const normalizedEndpoint = normalizeEndpoint(endpoint);
   const url = `${process.env.API_SERVER_URL}/${normalizedEndpoint}`;
 
-  const headers = new Headers(options?.headers ?? {});
+  const headers = new Headers();
+  if (contentType) headers.set('Content-type', contentType);
   if (token) headers.set('Authorization', `Bearer ${token}`);
 
   const requestOptions: RequestInit = {
-    ...options,
     headers,
     method,
+    body,
     cache: 'no-store',
   };
 
