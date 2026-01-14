@@ -4,6 +4,12 @@ export const currencyTranslate: Record<string, string> = {
   JPY: '엔화',
 } as const;
 
+export const currencyCountry: Record<string, string> = {
+  KRW: '한국',
+  USD: '미국',
+  JPY: '일본',
+} as const;
+
 export const currencyTranslateWithCountry: Record<string, string> = {
   KRW: '한국 원화',
   USD: '미국 달러',

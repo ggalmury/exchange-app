@@ -10,11 +10,11 @@ const MyAssetRow = ({ wallet }: MyAssetRowProps) => {
 
   return (
     <div className="flex items-center justify-between text-[1.25rem] text-gray-600">
-      <span className="font-medium">{currency}</span>
+      <p className="font-medium">{currency}</p>
 
-      <span className="font-semibold">
+      <p className="font-semibold">
         {currencySymbol[currency]} {balance.toLocaleString()}
-      </span>
+      </p>
     </div>
   );
 };
