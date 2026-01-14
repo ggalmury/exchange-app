@@ -3,7 +3,6 @@ import { useQueryClient, useMutation } from '@tanstack/react-query';
 import ResultError from '@/shared/errors/client/result-error';
 
 import login from '@/features/auth/apis/bff/login';
-import type { LoginRequest } from '@/features/auth/models/login-request';
 
 interface UseLoginParams {
   onSuccess?: () => void;
@@ -15,9 +14,7 @@ const useLogin = ({ onSuccess, onError }: UseLoginParams = {}) => {
 
   return useMutation({
     mutationFn: async (email: string) => {
-      const loginRequest: LoginRequest = { email };
-
-      const result = await login(loginRequest);
+      const result = await login(email);
       if (!result.ok) throw new ResultError(result.statusCode, result.code);
     },
     onSuccess: () => {
