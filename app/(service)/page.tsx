@@ -1,4 +1,5 @@
 import ExchangeRateSection from '@/features/exchange-rate/components/ExchangeRateSection';
+import MyWalletSection from '@/features/wallet/components/MyWalletSection';
 
 const HomePage = () => {
   return (
@@ -8,33 +9,11 @@ const HomePage = () => {
         <p className="text-xl text-gray-700">실시간 환율을 확인하고 간편하게 환전하세요.</p>
       </div>
 
-      <div className="flex w-full gap-4">
-        <div className="flex min-h-196.75 min-w-157 flex-col">
+      <div className="flex w-full gap-8">
+        <div className="flex min-h-196.75 min-w-157 flex-col gap-8">
           <ExchangeRateSection />
 
-          <div className="flex min-h-[360px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-base font-semibold text-slate-900">내 지갑</h2>
-            <div className="mt-4 space-y-3 text-sm text-slate-600">
-              <div className="flex items-center justify-between">
-                <span>KRW</span>
-                <span className="rounded border border-slate-200 bg-slate-50 px-2 py-1 text-slate-700">
-                  ₩ 1,200,000
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span>USD</span>
-                <span className="text-slate-700">$ 50.000</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span>JPY</span>
-                <span className="text-slate-700">¥ 150,000</span>
-              </div>
-            </div>
-            <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-4 text-sm font-semibold text-slate-600">
-              <span>총 보유 자산</span>
-              <span className="text-blue-500">₩ 3,000,000</span>
-            </div>
-          </div>
+          <MyWalletSection />
         </div>
 
         <section className="flex min-h-196.75 min-w-157 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
