@@ -1,5 +1,6 @@
 import { ClientErrorCode } from '@/shared/errors/client-error-code';
 import { ApiErrorCode } from '@/shared/errors/api-error-code';
+
 import { OrderErrorCode } from '@/features/order/errors/order-error-code';
 
 export const ERROR_MESSAGE: Record<string, string> = {
@@ -16,6 +17,18 @@ export const ERROR_MESSAGE: Record<string, string> = {
   [ApiErrorCode.VALIDATION_ERROR]: '요청 데이터가 이상해요.',
   [ApiErrorCode.MISSING_PARAMETER]: '필수 요청 파라미터가 누락되었어요.',
 
+  [OrderErrorCode.WALLET_INSUFFICIENT_BALANCE]: '지갑의 잔액이 부족합니다.',
+  [OrderErrorCode.INVALID_DEPOSIT_AMOUNT]: '입금 금액이 유효하지 않습니다.',
+  [OrderErrorCode.INVALID_WITHDRAW_AMOUNT]: '출금 금액이 유효하지 않습니다.',
+  [OrderErrorCode.CURRENCY_MISMATCH]: '통화 타입이 일치하지 않습니다.',
+  [OrderErrorCode.INVALID_AMOUNT_SCALE]: '통화는 소수점 2자리까지만 허용됩니다.',
   [OrderErrorCode.EXCHANGE_RATE_MISMATCH]:
     '환율 정보가 일치하지 않습니다. 잠시 후 다시 시도해 주세요.',
+  [OrderErrorCode.EXCHANGE_RATE_CURRENCY_MISMATCH]:
+    '환율의 대상 통화와 변환하려는 금액의 통화가 일치하지 않습니다.',
+  [OrderErrorCode.UNSUPPORTED_FOREX_CONVERSION_CURRENCY]:
+    '외화 변환은 원화(KRW)를 지원하지 않습니다.',
+  [OrderErrorCode.INVALID_EXCHANGE_RATE_CURRENCY]: '환율 정보의 통화는 KRW가 될 수 없습니다.',
+  [OrderErrorCode.UNSUPPORTED_CURRENCY_FOR_KRW_CONVERSION]:
+    '원화(KRW) 변환은 KRW 통화만 지원합니다.',
 };
