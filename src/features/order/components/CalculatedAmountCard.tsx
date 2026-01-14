@@ -19,7 +19,7 @@ const CalculatedAmountCard = () => {
 
       <div className="w-full rounded-lg border border-gray-400 bg-gray-100 p-5 text-right">
         <p className="text-[1.25rem] font-bold">
-          <span className="font-semibold">{quote?.krwAmount.toLocaleString() ?? '...'}</span>
+          <span className="font-semibold">{quote?.krwAmount.toLocaleString() ?? '0'}</span>
 
           <span className={cn(orderType === 'BUY' ? 'text-red-500' : 'text-blue-500')}>
             {orderType === 'BUY' ? ' 원 필요해요' : ' 원 받을 수 있어요'}
