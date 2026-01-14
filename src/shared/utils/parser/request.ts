@@ -1,3 +1,4 @@
+import { isEmptyString } from '@/shared/utils/validate';
 import ResponseParseFailedError from '@/shared/errors/client/response-parse-failed-error';
 import InvalidParamError from '@/shared/errors/client/invalid-param-error';
 
@@ -11,7 +12,7 @@ export const parseJsonOrThrow = async <T>(request: Request): Promise<T> => {
 
 export const parseQueryParam = (url: URL, key: string): string | null => {
   const value = url.searchParams.get(key);
-  if (!value || value.trim() === '') return null;
+  if (isEmptyString(value)) return null;
 
   return value;
 };

@@ -1,5 +1,6 @@
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 
+import { isEmptyString } from '@/shared/utils/validate';
 import ResultError from '@/shared/errors/client/result-error';
 
 import { AuthErrorCode } from '@/features/auth/errors/auth-error-code';
@@ -16,7 +17,7 @@ const useLogin = ({ onSuccess, onError }: UseLoginParams = {}) => {
 
   return useMutation({
     mutationFn: async (email: string) => {
-      if (!email || email.trim() === '') throw new InvalidFormError(AuthErrorCode.EMAIL_EMPTY);
+      if (isEmptyString(email)) throw new InvalidFormError(AuthErrorCode.EMAIL_EMPTY);
 
       const result = await login(email);
       if (!result.ok) throw new ResultError(result.statusCode, result.code);
