@@ -7,13 +7,13 @@ import EXCHANGE_RATE_QUERY_KEYS from '@/features/exchange-rate/constants/query-k
 
 import WALLET_QUERY_KEYS from '@/features/wallet/constants/query-key';
 
+import type { OrderRequest } from '@/features/order/models/order-request';
 import { getFromCurrency, getToCurrency } from '@/features/order/utils/currency';
 import ORDER_QUERY_KEYS from '@/features/order/constants/query-key';
 import { OrderErrorCode } from '@/features/order/errors/order-error-code';
 import useOrderStore from '@/features/order/stores/useOrderStore';
 import useQuote from '@/features/order/hooks/useQuote';
 import order from '@/features/order/apis/bff/order';
-import type { OrderRequest } from '@/features/order/models/order-request';
 
 interface UseOrderParams {
   onSuccess?: () => void;

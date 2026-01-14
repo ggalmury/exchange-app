@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+import { success, failed, type Result } from '@/shared/models/result';
 import { parseQueryParamOrThrow } from '@/shared/utils/parser/request';
 import { setTokenToCookie } from '@/shared/cookie/token';
-import { success, failed, type Result } from '@/shared/models/result';
 
 import fetchLogin from '@/features/auth/apis/server/fetch-login';
 

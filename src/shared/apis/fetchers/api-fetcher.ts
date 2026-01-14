@@ -1,10 +1,10 @@
+import type { ApiResponse } from '@/shared/models/api-response';
+import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.options';
 import { normalizeEndpoint } from '@/shared/utils/url';
 import { parseJsonOrThrow } from '@/shared/utils/parser/response';
-import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.options';
 import ApiErrorFactory from '@/shared/errors/api/api-error.factory';
 import ApiError from '@/shared/errors/api/api-error';
 import ApiRequestError from '@/shared/errors/client/api-request-error';
-import type { ApiResponse } from '@/shared/models/api-response';
 
 interface ApiFetcherOptions extends BaseFetcherOptions {
   token?: string;

@@ -1,6 +1,6 @@
 import { ClientErrorCode } from '@/shared/errors/client-error-code';
-import ApiError from '@/shared/errors/api/api-error';
 import ClientError from '@/shared/errors/client/client-error';
+import ApiError from '@/shared/errors/api/api-error';
 
 export interface Success<T> {
   ok: true;

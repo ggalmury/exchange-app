@@ -1,8 +1,8 @@
+import { failed, type Result } from '@/shared/models/result';
+import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.options';
 import { normalizeEndpoint } from '@/shared/utils/url';
 import { parseJsonOrThrow } from '@/shared/utils/parser/response';
-import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.options';
 import ApiRequestError from '@/shared/errors/client/api-request-error';
-import { failed, type Result } from '@/shared/models/result';
 
 const bffFetcher = async <T = unknown>({
   endpoint,

@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 
 import ResultError from '@/shared/errors/client/result-error';
 
+import type { WalletOverview } from '@/features/wallet/models/wallet.overview';
 import WALLET_QUERY_KEYS from '@/features/wallet/constants/query-key';
 import getMyWallet from '@/features/wallet/apis/bff/get-my-wallet';
-import type { WalletOverview } from '@/features/wallet/models/wallet.overview';
 
 const useMyWallet = () => {
   return useQuery<WalletOverview>({

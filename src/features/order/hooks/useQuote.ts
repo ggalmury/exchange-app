@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 import InvalidFormError from '@/shared/errors/client/invalid-form-error';
 import ResultError from '@/shared/errors/client/result-error';
 
+import type { Quote } from '@/features/order/models/quote';
 import { getFromCurrency, getToCurrency } from '@/features/order/utils/currency';
 import ORDER_QUERY_KEYS from '@/features/order/constants/query-key';
 import { OrderErrorCode } from '@/features/order/errors/order-error-code';
 import useOrderStore from '@/features/order/stores/useOrderStore';
 import getQuote from '@/features/order/apis/bff/get-quote';
-import type { Quote } from '@/features/order/models/quote';
 
 const useQuote = () => {
   const exchangeRateId = useOrderStore((state) => state.exchangeRateId);

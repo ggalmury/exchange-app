@@ -1,5 +1,6 @@
-import type { Wallet } from '@/features/wallet/models/wallet';
 import { currencySymbol } from '@/shared/constants/currency';
+
+import type { Wallet } from '@/features/wallet/models/wallet';
 
 interface MyAssetRowProps {
   wallet: Wallet;

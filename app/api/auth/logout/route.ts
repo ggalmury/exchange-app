@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-import { deleteTokenFromCookie } from '@/shared/cookie/token';
 import { success, failed, type Result } from '@/shared/models/result';
+import { deleteTokenFromCookie } from '@/shared/cookie/token';
 
 export const POST = async (): Promise<NextResponse<Result<null>>> => {
   try {

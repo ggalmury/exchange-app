@@ -1,5 +1,5 @@
-import bffFetcher from '@/shared/apis/fetchers/bff-fetcher';
 import type { Result } from '@/shared/models/result';
+import bffFetcher from '@/shared/apis/fetchers/bff-fetcher';
 
 import type { OrderRequest } from '@/features/order/models/order-request';
 

@@ -4,9 +4,9 @@ import ResultError from '@/shared/errors/client/result-error';
 
 import useOrderStore from '@/features/order/stores/useOrderStore';
 
+import type { ExchangeRate } from '@/features/exchange-rate/models/exchange-rate';
 import EXCHANGE_RATE_QUERY_KEYS from '@/features/exchange-rate/constants/query-key';
 import getLatestExchangeRates from '@/features/exchange-rate/apis/bff/get-latest-exchange-rates';
-import type { ExchangeRate } from '@/features/exchange-rate/models/exchange-rate';
 
 const useLatestExchangeRates = () => {
   const setCurrency = useOrderStore((state) => state.setCurrency);

@@ -1,4 +1,5 @@
 import { currencyTranslateWithCountry } from '@/shared/constants/currency';
+
 import type { ExchangeRate } from '@/features/exchange-rate/models/exchange-rate';
 import ChangePercentageText from '@/features/exchange-rate/components/ChangePercentageText';
 

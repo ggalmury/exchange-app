@@ -2,8 +2,8 @@
 
 import { cn } from '@/shared/utils/cn';
 
-import useOrderStore from '@/features/order/stores/useOrderStore';
 import type { OrderType } from '@/features/order/types/order.type';
+import useOrderStore from '@/features/order/stores/useOrderStore';
 
 interface OrderTypeButtonProps {
   orderType: OrderType;

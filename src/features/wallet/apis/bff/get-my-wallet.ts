@@ -1,5 +1,5 @@
-import bffFetcher from '@/shared/apis/fetchers/bff-fetcher';
 import type { Result } from '@/shared/models/result';
+import bffFetcher from '@/shared/apis/fetchers/bff-fetcher';
 
 import type { WalletOverview } from '@/features/wallet/models/wallet.overview';
 
