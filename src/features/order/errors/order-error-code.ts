@@ -1,0 +1,3 @@
+export enum OrderErrorCode {
+  EXCHANGE_RATE_MISMATCH = 'EXCHANGE_RATE_MISMATCH',
+}
