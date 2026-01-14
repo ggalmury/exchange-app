@@ -34,4 +34,6 @@ export const ERROR_MESSAGE: Record<string, string> = {
   [OrderErrorCode.INVALID_EXCHANGE_RATE_CURRENCY]: '환율 정보의 통화는 KRW가 될 수 없습니다.',
   [OrderErrorCode.UNSUPPORTED_CURRENCY_FOR_KRW_CONVERSION]:
     '원화(KRW) 변환은 KRW 통화만 지원합니다.',
+  [OrderErrorCode.AMOUNT_NOT_PROVIDED]: '환전할 금액을 입력해주세요.',
+  [OrderErrorCode.CURRENCY_NOT_PROVIDED]: '통화가 선택되지 않았습니다.',
 };

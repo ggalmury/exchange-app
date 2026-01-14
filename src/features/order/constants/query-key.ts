@@ -1,9 +1,11 @@
+import type { OrderType } from '@/features/order/types/order.type';
+
 const ORDER_QUERY_KEYS = {
   MY: ['order', 'my'],
-  QUOTE: (fromCurrency: string, toCurrency: string, forexAmount: number) => [
+  QUOTE: (orderType: OrderType, amount: number, exchangeRateId?: number, currency?: string) => [
     'order',
     'quote',
-    `${fromCurrency}-${toCurrency}-${forexAmount}`,
+    `${orderType}-${amount}-${exchangeRateId}-${currency}`,
   ],
 } as const;
 

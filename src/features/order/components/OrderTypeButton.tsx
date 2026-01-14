@@ -1,0 +1,43 @@
+'use client';
+
+import { cn } from '@/shared/utils/cn';
+
+import useOrderStore from '@/features/order/stores/useOrderStore';
+import type { OrderType } from '@/features/order/types/order.type';
+
+interface OrderTypeButtonProps {
+  orderType: OrderType;
+}
+
+const OrderTypeButton = ({ orderType }: OrderTypeButtonProps) => {
+  const selectedOrderType = useOrderStore((state) => state.orderType);
+  const setOrderType = useOrderStore((state) => state.setOrderType);
+
+  const isSelected = orderType === selectedOrderType;
+  const backgroundColor = isSelected
+    ? orderType === 'BUY'
+      ? 'bg-red-500'
+      : 'bg-blue-500'
+    : 'bg-white';
+  const foregroundColor = isSelected
+    ? 'text-white'
+    : orderType === 'BUY'
+      ? 'text-red-300'
+      : 'text-blue-300';
+
+  return (
+    <button
+      className={cn(
+        'w-full rounded-xl p-3 text-[1.25rem] font-bold',
+        backgroundColor,
+        foregroundColor,
+      )}
+      type="button"
+      onClick={() => setOrderType(orderType)}
+    >
+      {orderType === 'BUY' ? '살래요' : '팔래요'}
+    </button>
+  );
+};
+
+export default OrderTypeButton;
