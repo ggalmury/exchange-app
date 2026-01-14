@@ -1,10 +1,10 @@
 import { ClientErrorCode } from '@/shared/errors/client-error-code';
 import ClientError from '@/shared/errors/client/client-error';
 
-export default class InvalidFormError extends ClientError {
+export default class InvalidParamError extends ClientError {
   constructor() {
-    super(ClientErrorCode.INVALID_FORM);
+    super(ClientErrorCode.INVALID_PARAM);
 
-    this.name = 'InvalidFormError';
+    this.name = 'InvalidParamError';
   }
 }
