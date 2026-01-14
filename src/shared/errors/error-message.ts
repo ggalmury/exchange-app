@@ -2,6 +2,7 @@ import { ClientErrorCode } from '@/shared/errors/client-error-code';
 import { ApiErrorCode } from '@/shared/errors/api-error-code';
 
 import { OrderErrorCode } from '@/features/order/errors/order-error-code';
+import { AuthErrorCode } from '@/features/auth/errors/auth-error-code';
 
 export const ERROR_MESSAGE: Record<string, string> = {
   [ClientErrorCode.UNKNOWN]: '알 수 없는 에러가 발생했어요.',
@@ -16,6 +17,8 @@ export const ERROR_MESSAGE: Record<string, string> = {
   [ApiErrorCode.UNAUTHORIZED]: '로그인이 필요한 서비스입니다.',
   [ApiErrorCode.VALIDATION_ERROR]: '요청 데이터가 이상해요.',
   [ApiErrorCode.MISSING_PARAMETER]: '필수 요청 파라미터가 누락되었어요.',
+
+  [AuthErrorCode.EMAIL_EMPTY]: '이메일을 입력해주세요.',
 
   [OrderErrorCode.WALLET_INSUFFICIENT_BALANCE]: '지갑의 잔액이 부족합니다.',
   [OrderErrorCode.INVALID_DEPOSIT_AMOUNT]: '입금 금액이 유효하지 않습니다.',
