@@ -55,8 +55,8 @@ const useOrder = ({ onSuccess, onError }: UseOrderParams = {}) => {
     },
     onError: (error) => {
       if (error instanceof ResultError && error.code === OrderErrorCode.EXCHANGE_RATE_MISMATCH) {
-        refetchQuote();
         queryClient.invalidateQueries({ queryKey: EXCHANGE_RATE_QUERY_KEYS.LATEST });
+        refetchQuote();
       }
 
       onError?.(error);

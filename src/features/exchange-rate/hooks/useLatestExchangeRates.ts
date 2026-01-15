@@ -9,6 +9,8 @@ import EXCHANGE_RATE_QUERY_KEYS from '@/features/exchange-rate/constants/query-k
 import getLatestExchangeRates from '@/features/exchange-rate/apis/bff/get-latest-exchange-rates';
 
 const useLatestExchangeRates = () => {
+  const currentExchangeRateId = useOrderStore((state) => state.exchangeRateId);
+  const currentCurrency = useOrderStore((state) => state.currency);
   const setCurrency = useOrderStore((state) => state.setCurrency);
 
   return useQuery<ExchangeRate[]>({
@@ -18,9 +20,23 @@ const useLatestExchangeRates = () => {
       if (!result.ok) throw new ResultError(result.statusCode, result.code);
 
       const data = result.data;
-      const { exchangeRateId, currency } = data[0];
+      if (!currentExchangeRateId || !currentCurrency) {
+        const initialExchangeRate = data[0];
+        const { exchangeRateId, currency } = initialExchangeRate;
 
-      setCurrency(exchangeRateId, currency);
+        setCurrency(exchangeRateId, currency);
+
+        return data;
+      }
+
+      const newExchangeRate = data.find(
+        (exchangeRate) => exchangeRate.currency === currentCurrency,
+      );
+      if (newExchangeRate) {
+        const { exchangeRateId, currency } = newExchangeRate;
+
+        setCurrency(exchangeRateId, currency);
+      }
 
       return data;
     },

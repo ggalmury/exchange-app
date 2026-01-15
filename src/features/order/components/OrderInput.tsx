@@ -15,6 +15,7 @@ interface LoginInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const OrderInput = ({ label, ...rest }: LoginInputProps) => {
+  const exchangeRateId = useOrderStore((state) => state.exchangeRateId);
   const currency = useOrderStore((state) => state.currency);
   const orderType = useOrderStore((state) => state.orderType);
   const amount = useOrderStore((state) => state.amount);
@@ -26,7 +27,7 @@ const OrderInput = ({ label, ...rest }: LoginInputProps) => {
 
   useEffect(() => {
     if (debouncedAmount > 0) refetchQuote();
-  }, [orderType, currency, debouncedAmount]);
+  }, [exchangeRateId, currency, orderType, debouncedAmount]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;

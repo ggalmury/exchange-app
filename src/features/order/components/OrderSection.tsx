@@ -4,14 +4,14 @@ import { ChevronDown } from 'lucide-react';
 
 import { toastMessage } from '@/shared/utils/ui';
 
+import PrimaryButton from '@/components/buttons/PrimaryButton';
+
 import useOrder from '@/features/order/hooks/useOrder';
 import CurrencyChoiceButton from '@/features/order/components/CurrencyChoiceButton';
 import OrderTypeSelector from '@/features/order/components/OrderTypeSelector';
 import OrderInput from '@/features/order/components/OrderInput';
 import CalculatedAmountCard from '@/features/order/components/CalculatedAmountCard';
 import AppliedExchangeRateRow from '@/features/order/components/AppliedExchangeRateRow';
-
-import PrimaryButton from '@/components/buttons/PrimaryButton';
 
 const OrderSection = () => {
   const { mutate: order, isPending } = useOrder({
