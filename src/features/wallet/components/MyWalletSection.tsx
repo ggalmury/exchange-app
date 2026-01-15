@@ -1,13 +1,16 @@
 'use client';
 
+import Skeleton from '@/components/Skeleton';
+
 import useMyWallet from '@/features/wallet/hooks/useMyWallet';
 import MyAssetRow from '@/features/wallet/components/MyAssetRow';
 
 const MyWalletSection = () => {
   const { data: walletOverview, isLoading } = useMyWallet();
 
-  if (isLoading) return null;
-  if (!walletOverview) return null;
+  if (isLoading || !walletOverview) {
+    return <Skeleton className="min-w-157 flex-1" />;
+  }
 
   const { totalKrwBalance, wallets } = walletOverview;
 
