@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import Header from '@/components/layouts/Header';
+
 interface ServiceLayoutProps {
   children: ReactNode;
 }
@@ -7,10 +9,10 @@ interface ServiceLayoutProps {
 const ServiceLayout = ({ children }: Readonly<ServiceLayoutProps>) => {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* header */}
+      <Header />
 
       <main className="flex flex-1 justify-center bg-white">
-        <div className="flex max-w-360 flex-col p-10">{children}</div>
+        <div className="flex w-full max-w-360 flex-col p-10">{children}</div>
       </main>
     </div>
   );
