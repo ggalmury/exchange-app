@@ -12,12 +12,11 @@ interface CurrencyChoiceMenuProps {
 }
 
 const CurrencyChoiceMenu = ({ onChoice }: CurrencyChoiceMenuProps) => {
-  const { data: exchangeRates, isLoading, isError, error } = useLatestExchangeRates();
+  const { data: exchangeRates, isLoading } = useLatestExchangeRates();
 
   const setCurrency = useOrderStore((state) => state.setCurrency);
 
   if (isLoading) return null;
-  if (isError) throw error;
   if (!exchangeRates) return null;
 
   return (

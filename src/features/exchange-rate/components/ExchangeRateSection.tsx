@@ -4,10 +4,9 @@ import useLatestExchangeRates from '@/features/exchange-rate/hooks/useLatestExch
 import ExchangeRateCard from '@/features/exchange-rate/components/ExchangeRateCard';
 
 const ExchangeRateSection = () => {
-  const { data: exchangeRates, isLoading, isError, error } = useLatestExchangeRates();
+  const { data: exchangeRates, isLoading } = useLatestExchangeRates();
 
   if (isLoading) return null;
-  if (isError) throw error;
   if (!exchangeRates) return null;
 
   return (

@@ -28,7 +28,7 @@ const QueryProvider = ({ children }: QueryProviderProps) => {
         isHandling401 = true;
 
         qc.clear();
-        router.replace('/');
+        router.replace('/login');
 
         setTimeout(() => {
           isHandling401 = false;

@@ -4,10 +4,9 @@ import useMyWallet from '@/features/wallet/hooks/useMyWallet';
 import MyAssetRow from '@/features/wallet/components/MyAssetRow';
 
 const MyWalletSection = () => {
-  const { data: walletOverview, isLoading, isError, error } = useMyWallet();
+  const { data: walletOverview, isLoading } = useMyWallet();
 
   if (isLoading) return null;
-  if (isError) throw error;
   if (!walletOverview) return null;
 
   const { totalKrwBalance, wallets } = walletOverview;

@@ -8,10 +8,9 @@ import useQuote from '@/features/order/hooks/useQuote';
 const CalculatedAmountCard = () => {
   const orderType = useOrderStore((state) => state.orderType);
 
-  const { data: quote, isLoading, isError, error } = useQuote();
+  const { data: quote, isLoading } = useQuote();
 
   if (isLoading) return null;
-  if (isError) throw error;
 
   return (
     <div className="flex flex-col gap-2 text-left">

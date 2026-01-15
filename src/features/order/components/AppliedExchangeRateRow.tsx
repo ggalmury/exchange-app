@@ -6,10 +6,9 @@ import useQuote from '@/features/order/hooks/useQuote';
 const AppliedExchangeRateRow = () => {
   const currency = useOrderStore((state) => state.currency);
 
-  const { data: quote, isLoading, isError, error } = useQuote();
+  const { data: quote, isLoading } = useQuote();
 
   if (isLoading) return null;
-  if (isError) throw error;
   if (!quote) return null;
 
   return (
