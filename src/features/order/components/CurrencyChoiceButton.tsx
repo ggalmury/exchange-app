@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
+import Skeleton from '@/components/Skeleton';
+
 import useOrderStore from '@/features/order/stores/useOrderStore';
 import CurrencyChoiceMenu from '@/features/order/components/CurrencyChoiceMenu';
 
@@ -12,6 +14,8 @@ const CurrencyChoiceButton = () => {
   const currency = useOrderStore((state) => state.currency);
 
   const toggleMenu = (): void => setIsMenuOpen(!isMenuOpen);
+
+  if (!currency) return <Skeleton className="h-8 w-42" />;
 
   return (
     <div className="relative">

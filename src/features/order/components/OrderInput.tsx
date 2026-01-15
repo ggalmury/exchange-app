@@ -7,6 +7,8 @@ import { toNumber } from '@/shared/utils/transform';
 import { currencyTranslate } from '@/shared/constants/currency';
 import useDebounce from '@/shared/hooks/useDebounce';
 
+import Skeleton from '@/components/Skeleton';
+
 import useOrderStore from '@/features/order/stores/useOrderStore';
 import useQuote from '@/features/order/hooks/useQuote';
 
@@ -41,19 +43,25 @@ const OrderInput = ({ label, ...rest }: LoginInputProps) => {
       <p className="text-[1.25rem] font-medium text-gray-600">{label}</p>
 
       <div className="relative">
-        <input
-          {...rest}
-          className={cn(
-            'w-full rounded-lg border border-gray-300 bg-white p-5 pr-28 text-right text-xl font-semibold text-gray-600',
-            'placeholder:text-gray-400',
-            'focus:border-gray-700',
-          )}
-          onChange={handleChange}
-        />
+        {currency ? (
+          <input
+            {...rest}
+            className={cn(
+              'w-full rounded-lg border border-gray-300 bg-white p-5 pr-28 text-right text-xl font-semibold text-gray-600',
+              'placeholder:text-gray-400',
+              'focus:border-gray-700',
+            )}
+            onChange={handleChange}
+          />
+        ) : (
+          <Skeleton className="h-17.5 w-full" />
+        )}
 
-        <p className="absolute top-1/2 right-6 -translate-y-1/2 text-[1.25rem] font-medium text-gray-600">
-          {currency && currencyTranslate[currency]} {orderType === 'BUY' ? '사기' : '팔기'}
-        </p>
+        {currency && (
+          <p className="absolute top-1/2 right-6 -translate-y-1/2 text-[1.25rem] font-medium text-gray-600">
+            {currencyTranslate[currency]} {orderType === 'BUY' ? '사기' : '팔기'}
+          </p>
+        )}
       </div>
     </div>
   );

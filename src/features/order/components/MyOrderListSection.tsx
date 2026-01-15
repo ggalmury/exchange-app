@@ -2,13 +2,14 @@
 
 import { format } from 'date-fns';
 
+import Skeleton from '@/components/Skeleton';
+
 import useMyOrders from '@/features/order/hooks/useMyOrders';
 
 const MyOrderListSection = () => {
   const { data: myOrders, isLoading } = useMyOrders();
 
-  if (isLoading) return null;
-  if (!myOrders) return null;
+  if (isLoading || !myOrders) return <Skeleton className="h-140 w-full" />;
 
   return (
     <section className="flex flex-col rounded-xl border border-gray-300 bg-white">
