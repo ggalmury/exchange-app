@@ -13,8 +13,9 @@ const PrimaryButton = ({ label, ...rest }: PrimaryButtonProps) => {
     <button
       {...rest}
       className={cn(
-        'w-full rounded-lg bg-gray-700 p-5 text-[1.375rem] font-semibold text-white',
-        'hover:bg-[#1B2334]',
+        'w-full rounded-xl bg-gray-700 p-5 text-[1.375rem] font-semibold text-white',
+        'hover:bg-gray-800',
+        'disabled:bg-gray-400',
       )}
     >
       {label}

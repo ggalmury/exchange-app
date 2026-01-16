@@ -5,8 +5,8 @@ import LogoutButton from '@/features/auth/components/LogoutButton';
 
 const Header = () => {
   return (
-    <header className="flex h-18.75 justify-center border-b border-gray-300 bg-white">
-      <div className="flex h-full w-full max-w-360 flex-row items-center justify-between p-10">
+    <header className="flex h-18.75 justify-center border-b border-gray-300">
+      <div className="flex h-full w-full max-w-360 items-center justify-between p-10">
         <LogoButton />
 
         <div className="flex gap-6">

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { createBffHandler } from '@/shared/utils/bff';
+import { bffHandler } from '@/shared/utils/bff';
 import { parseJsonOrThrow } from '@/shared/utils/parser/request';
 import { getTokenFromCookieOrThrow } from '@/shared/cookie/token';
 
@@ -23,5 +23,5 @@ const orderHandler = async (request: NextRequest): Promise<string> => {
   return await fetchOrder(requestBody, storedToken);
 };
 
-export const GET = createBffHandler(myOrdersHandler);
-export const POST = createBffHandler(orderHandler);
+export const GET = bffHandler(myOrdersHandler);
+export const POST = bffHandler(orderHandler);

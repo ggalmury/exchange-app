@@ -8,9 +8,7 @@ import MyAssetRow from '@/features/wallet/components/MyAssetRow';
 const MyWalletSection = () => {
   const { data: walletOverview, isLoading } = useMyWallet();
 
-  if (isLoading || !walletOverview) {
-    return <Skeleton className="min-w-157 flex-1" />;
-  }
+  if (isLoading || !walletOverview) return <Skeleton className="min-w-157 flex-1" />;
 
   const { totalKrwBalance, wallets } = walletOverview;
 

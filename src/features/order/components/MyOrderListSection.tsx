@@ -12,7 +12,7 @@ const MyOrderListSection = () => {
   if (isLoading || !myOrders) return <Skeleton className="h-140 w-full" />;
 
   return (
-    <section className="flex flex-col rounded-xl border border-gray-300 bg-white">
+    <section className="flex flex-col rounded-xl border border-gray-300">
       <div className="w-full">
         <div className="grid grid-cols-[1fr_2fr_1.5fr_1.5fr_1.5fr] gap-4 border-b border-gray-200 px-8 py-4 text-sm text-gray-600">
           <p>거래 ID</p>

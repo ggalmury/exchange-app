@@ -42,9 +42,8 @@ const apiFetcher = async <T = unknown>({
     }
 
     const body = await parseJsonOrThrow<ApiResponse<T>>(response);
-    const data = body.data;
 
-    return data;
+    return body.data;
   } catch (e) {
     if (e instanceof ApiError) throw e;
 

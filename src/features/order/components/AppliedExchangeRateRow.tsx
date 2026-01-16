@@ -8,8 +8,7 @@ const AppliedExchangeRateRow = () => {
 
   const { data: quote, isLoading } = useQuote();
 
-  if (isLoading) return null;
-  if (!quote) return null;
+  if (isLoading || !quote) return null;
 
   return (
     <div className="flex w-full items-center justify-between text-[1.25rem]">

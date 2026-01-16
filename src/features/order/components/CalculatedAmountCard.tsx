@@ -16,14 +16,16 @@ const CalculatedAmountCard = () => {
     <div className="flex flex-col gap-2 text-left">
       <p className="text-[1.25rem] font-medium text-gray-600">필요 원화</p>
 
-      {isLoading ? (
+      {isLoading || !quote ? (
         <Skeleton className="h-17.5 w-full" />
       ) : (
-        <div className="w-full rounded-lg border border-gray-400 bg-gray-100 p-5 text-right">
-          <p className="text-[1.25rem] font-bold">
-            <span className="font-semibold">{quote?.krwAmount.toLocaleString() ?? '0'}</span>
+        <div className="w-full rounded-xl border border-gray-400 bg-gray-100 p-5 text-right">
+          <p className="text-[1.25rem] text-gray-600">
+            <span className="font-semibold">{quote.krwAmount.toLocaleString()}</span>
 
-            <span className={cn(orderType === 'BUY' ? 'text-red-500' : 'text-blue-500')}>
+            <span
+              className={cn('font-bold', orderType === 'BUY' ? 'text-red-500' : 'text-blue-500')}
+            >
               {orderType === 'BUY' ? ' 원 필요해요' : ' 원 받을 수 있어요'}
             </span>
           </p>

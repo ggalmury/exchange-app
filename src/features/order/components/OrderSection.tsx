@@ -15,7 +15,7 @@ import AppliedExchangeRateRow from '@/features/order/components/AppliedExchangeR
 
 const OrderSection = () => {
   const { mutate: order, isPending } = useOrder({
-    onSuccess: () => toastMessage('환전되었습니다!'),
+    onSuccess: () => toastMessage('환전되었습니다.'),
   });
 
   return (
@@ -26,13 +26,7 @@ const OrderSection = () => {
         <OrderTypeSelector />
 
         <div className="flex flex-col gap-4">
-          <OrderInput
-            label="매수 금액"
-            name="amount"
-            type="number"
-            placeholder="0"
-            defaultValue={0}
-          />
+          <OrderInput label="매수 금액" name="amount" placeholder="0" />
 
           <div className="flex items-center justify-center">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300">
@@ -47,7 +41,12 @@ const OrderSection = () => {
       <div className="mt-auto flex flex-col items-center justify-between gap-8 border-t border-gray-300 pt-8">
         <AppliedExchangeRateRow />
 
-        <PrimaryButton label="환전하기" disabled={isPending} onClick={() => order()} />
+        <PrimaryButton
+          label="환전하기"
+          type="button"
+          disabled={isPending}
+          onClick={() => order()}
+        />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { createBffHandler } from '@/shared/utils/bff';
+import { bffHandler } from '@/shared/utils/bff';
 import { parseQueryParamOrThrow } from '@/shared/utils/parser/request';
 import { getTokenFromCookieOrThrow } from '@/shared/cookie/token';
 
@@ -18,4 +18,4 @@ const quoteHandler = async (request: NextRequest): Promise<Quote> => {
   return await fetchQuote(fromCurrency, toCurrency, forexAmount, storedToken);
 };
 
-export const GET = createBffHandler(quoteHandler);
+export const GET = bffHandler(quoteHandler);

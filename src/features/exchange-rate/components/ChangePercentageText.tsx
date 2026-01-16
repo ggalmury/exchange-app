@@ -9,8 +9,8 @@ const ChangePercentageText = ({ changePercentage }: ChangePercentageTextProps) =
   const textColor = hasIncreased ? 'text-red-500' : 'text-blue-500';
 
   return (
-    <p className={cn('px-2 text-base', textColor)}>
-      {hasIncreased ? `▲ +${changePercentage}%` : `▼ ${changePercentage}%`}
+    <p className={cn('px-2', textColor)}>
+      {hasIncreased ? `▲ +${changePercentage}` : `▼ ${changePercentage}`}%
     </p>
   );
 };

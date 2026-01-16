@@ -1,7 +1,7 @@
 'use client';
 
 import { ButtonHTMLAttributes } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 import { cn } from '@/shared/utils/cn';
 
@@ -18,10 +18,11 @@ const NavigationButton = ({ label, to, ...rest }: NavigationButtonProps) => {
     <button
       {...rest}
       className={cn(
-        'rounded-lg px-6 py-2 text-[1.25rem] font-medium text-gray-300',
+        'rounded-xl px-6 py-2 text-[1.25rem] font-medium text-gray-300',
         'hover:bg-gray-100',
         pathname === to && 'font-bold text-gray-900',
       )}
+      type="button"
       onClick={() => router.push(to)}
     >
       {label}

@@ -1,12 +1,12 @@
 import { ClientErrorCode } from '@/shared/errors/client-error-code';
 import { ApiErrorCode } from '@/shared/errors/api-error-code';
 
-import { OrderErrorCode } from '@/features/order/errors/order-error-code';
 import { AuthErrorCode } from '@/features/auth/errors/auth-error-code';
+
+import { OrderErrorCode } from '@/features/order/errors/order-error-code';
 
 export const ERROR_MESSAGE: Record<string, string> = {
   [ClientErrorCode.UNKNOWN]: '알 수 없는 에러가 발생했어요.',
-  [ClientErrorCode.INITIALIZE_FAILED]: '서비스 초기화에 실패했어요. 잠시 후 다시 시도해 주세요.',
   [ClientErrorCode.API_REQUEST_FAILED]: '요청에 실패했어요. 잠시 후 다시 시도해 주세요.',
   [ClientErrorCode.INVALID_PARAM]: '경로가 올바르지 않아요. 다시 한번 확인해 주세요.',
   [ClientErrorCode.INVALID_FORM]: '입력 값이 올바르지 않아요. 다시 한번 확인해 주세요.',

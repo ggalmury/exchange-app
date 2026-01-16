@@ -1,5 +1,3 @@
-'use client';
-
 import OrderTypeButton from '@/features/order/components/OrderTypeButton';
 
 const OrderTypeSelector = () => {

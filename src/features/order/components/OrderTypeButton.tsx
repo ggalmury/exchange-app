@@ -10,16 +10,16 @@ interface OrderTypeButtonProps {
 }
 
 const OrderTypeButton = ({ orderType }: OrderTypeButtonProps) => {
-  const selectedOrderType = useOrderStore((state) => state.orderType);
+  const currentOrderType = useOrderStore((state) => state.orderType);
   const setOrderType = useOrderStore((state) => state.setOrderType);
 
-  const isSelected = orderType === selectedOrderType;
-  const backgroundColor = isSelected
+  const isSelected = orderType === currentOrderType;
+  const buttonColor = isSelected
     ? orderType === 'BUY'
       ? 'bg-red-500'
       : 'bg-blue-500'
     : 'bg-white';
-  const foregroundColor = isSelected
+  const textColor = isSelected
     ? 'text-white'
     : orderType === 'BUY'
       ? 'text-red-300'
@@ -27,11 +27,7 @@ const OrderTypeButton = ({ orderType }: OrderTypeButtonProps) => {
 
   return (
     <button
-      className={cn(
-        'w-full rounded-xl p-3 text-[1.25rem] font-bold',
-        backgroundColor,
-        foregroundColor,
-      )}
+      className={cn('w-full rounded-xl p-3 text-[1.25rem] font-bold', buttonColor, textColor)}
       type="button"
       onClick={() => setOrderType(orderType)}
     >

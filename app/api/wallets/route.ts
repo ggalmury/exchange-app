@@ -1,4 +1,4 @@
-import { createBffHandler } from '@/shared/utils/bff';
+import { bffHandler } from '@/shared/utils/bff';
 import { getTokenFromCookieOrThrow } from '@/shared/cookie/token';
 
 import type { WalletOverview } from '@/features/wallet/models/wallet.overview';
@@ -10,4 +10,4 @@ const myWalletHandler = async (): Promise<WalletOverview> => {
   return await fetchMyWallet(storedToken);
 };
 
-export const GET = createBffHandler(myWalletHandler);
+export const GET = bffHandler(myWalletHandler);

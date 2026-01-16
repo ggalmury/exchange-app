@@ -8,9 +8,9 @@ import { toastMessage } from '@/shared/utils/ui';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 
 import useLogin from '@/features/auth/hooks/useLogin';
-import LoginInput from '@/features/auth/components/LoginInput';
+import LoginFormInput from '@/features/auth/components/LoginFormInput';
 
-const LoginCard = () => {
+const LoginFormCard = () => {
   const router = useRouter();
 
   const { mutate: login, isPending } = useLogin({
@@ -31,14 +31,14 @@ const LoginCard = () => {
 
   return (
     <form
-      className="flex w-full flex-col gap-8 rounded-2xl border border-gray-300 bg-gray-50 px-8 py-6"
+      className="flex w-full flex-col gap-8 rounded-[20px] border border-gray-300 bg-gray-50 px-8 py-6"
       onSubmit={handleSubmit}
     >
-      <LoginInput
+      <LoginFormInput
         label="이메일 주소를 입력해주세요."
         name="email"
         type="email"
-        placeholder="test@test.com"
+        placeholder="abc@exchange.com"
         defaultValue=""
       />
 
@@ -47,4 +47,4 @@ const LoginCard = () => {
   );
 };
 
-export default LoginCard;
+export default LoginFormCard;

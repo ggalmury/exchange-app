@@ -1,10 +1,10 @@
 export const toNumber = (value: unknown) => {
   if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
   if (typeof value === 'string') {
-    const onlyDigits = value.replace(/[^0-9]/g, '');
-    const n = Number(onlyDigits);
+    const normalizedValue = value.replace(/[^0-9]/g, '');
+    const numericValue = Number(normalizedValue);
 
-    return Number.isFinite(n) ? n : 0;
+    return Number.isFinite(numericValue) ? numericValue : 0;
   }
 
   return 0;

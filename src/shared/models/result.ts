@@ -3,14 +3,14 @@ import ClientError from '@/shared/errors/client/client-error';
 import ApiError from '@/shared/errors/api/api-error';
 
 export interface Success<T> {
-  ok: true;
-  data: T;
+  readonly ok: true;
+  readonly data: T;
 }
 
 export interface Failed {
-  ok: false;
-  statusCode: number;
-  code: string;
+  readonly ok: false;
+  readonly statusCode: number;
+  readonly code: string;
 }
 
 export type Result<T> = Success<T> | Failed;

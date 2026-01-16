@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="ko">
-      <body className={cn('min-h-screen antialiased', pretendard.className)}>
+      <body className={cn('min-h-screen bg-white antialiased', pretendard.className)}>
         <ToastProvider />
         <QueryProvider>{children}</QueryProvider>
       </body>

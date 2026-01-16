@@ -47,10 +47,11 @@ const OrderInput = ({ label, ...rest }: LoginInputProps) => {
           <input
             {...rest}
             className={cn(
-              'w-full rounded-lg border border-gray-300 bg-white p-5 pr-28 text-right text-xl font-semibold text-gray-600',
+              'w-full rounded-xl border border-gray-300 bg-white p-5 pr-28 text-right text-xl font-semibold text-gray-600',
               'placeholder:text-gray-400',
               'focus:border-gray-700',
             )}
+            type="number"
             onChange={handleChange}
           />
         ) : (

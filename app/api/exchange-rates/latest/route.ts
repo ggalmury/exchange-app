@@ -1,4 +1,4 @@
-import { createBffHandler } from '@/shared/utils/bff';
+import { bffHandler } from '@/shared/utils/bff';
 import { getTokenFromCookieOrThrow } from '@/shared/cookie/token';
 
 import type { ExchangeRate } from '@/features/exchange-rate/models/exchange-rate';
@@ -10,4 +10,4 @@ const latestExchangeRatesHandler = async (): Promise<ExchangeRate[]> => {
   return await fetchLatestExchangeRates(storedToken);
 };
 
-export const GET = createBffHandler(latestExchangeRatesHandler);
+export const GET = bffHandler(latestExchangeRatesHandler);

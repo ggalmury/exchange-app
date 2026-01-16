@@ -12,6 +12,7 @@ const ExchangeRateSection = () => {
     return (
       <div className="flex flex-row gap-6">
         <Skeleton className="min-h-35.75 min-w-76" />
+
         <Skeleton className="min-h-35.75 min-w-76" />
       </div>
     );

@@ -11,7 +11,7 @@ const ServiceLayout = ({ children }: Readonly<ServiceLayoutProps>) => {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      <main className="flex flex-1 justify-center bg-white">
+      <main className="flex flex-1 justify-center">
         <div className="flex w-full max-w-360 flex-col p-10">{children}</div>
       </main>
     </div>

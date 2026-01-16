@@ -4,6 +4,8 @@ import { cn } from '@/shared/utils/cn';
 
 import { currencyCountry } from '@/shared/constants/currency';
 
+import Skeleton from '@/components/Skeleton';
+
 import useOrderStore from '@/features/order/stores/useOrderStore';
 import useLatestExchangeRates from '@/features/exchange-rate/hooks/useLatestExchangeRates';
 
@@ -16,8 +18,7 @@ const CurrencyChoiceMenu = ({ onChoice }: CurrencyChoiceMenuProps) => {
 
   const setCurrency = useOrderStore((state) => state.setCurrency);
 
-  if (isLoading) return null;
-  if (!exchangeRates) return null;
+  if (isLoading || !exchangeRates) return <Skeleton className="h-26 w-36" />;
 
   return (
     <div className="flex w-36 flex-col rounded-xl border border-gray-200 bg-white py-2">
