@@ -1,0 +1,54 @@
+import type { ApiResponse } from '@/shared/models/api-response';
+import type { BaseFetcherOptions } from '@/shared/apis/interfaces/base-fetcher.options';
+import { normalizeEndpoint } from '@/shared/utils/url';
+import { parseJsonOrThrow } from '@/shared/utils/parser/response';
+import ApiErrorFactory from '@/shared/errors/api/api-error.factory';
+import ApiError from '@/shared/errors/api/api-error';
+import ApiRequestError from '@/shared/errors/client/api-request-error';
+
+interface ApiFetcherOptions extends BaseFetcherOptions {
+  token?: string;
+}
+
+const apiFetcher = async <T = unknown>({
+  endpoint,
+  method,
+  contentType,
+  body,
+  token,
+}: ApiFetcherOptions): Promise<T> => {
+  const normalizedEndpoint = normalizeEndpoint(endpoint);
+  const url = `${process.env.API_SERVER_URL}/${normalizedEndpoint}`;
+
+  const headers = new Headers();
+  if (contentType) headers.set('Content-type', contentType);
+  if (token) headers.set('Authorization', `Bearer ${token}`);
+
+  const requestOptions: RequestInit = {
+    headers,
+    method,
+    body,
+    cache: 'no-store',
+  };
+
+  try {
+    const response = await fetch(url, requestOptions);
+    if (!response.ok) {
+      const statusCode = response.status;
+      const body = await parseJsonOrThrow<ApiResponse<null>>(response);
+      const code = body.code;
+
+      throw ApiErrorFactory.create(statusCode, code);
+    }
+
+    const body = await parseJsonOrThrow<ApiResponse<T>>(response);
+
+    return body.data;
+  } catch (e) {
+    if (e instanceof ApiError) throw e;
+
+    throw new ApiRequestError();
+  }
+};
+
+export default apiFetcher;
