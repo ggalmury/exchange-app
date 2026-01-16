@@ -16,12 +16,12 @@ const CalculatedAmountCard = () => {
     <div className="flex flex-col gap-2 text-left">
       <p className="text-[1.25rem] font-medium text-gray-600">필요 원화</p>
 
-      {isLoading || !quote ? (
+      {isLoading ? (
         <Skeleton className="h-17.5 w-full" />
       ) : (
         <div className="w-full rounded-xl border border-gray-400 bg-gray-100 p-5 text-right">
           <p className="text-[1.25rem] text-gray-600">
-            <span className="font-semibold">{quote.krwAmount.toLocaleString()}</span>
+            <span className="font-semibold">{quote?.krwAmount.toLocaleString() ?? '0'}</span>
 
             <span
               className={cn('font-bold', orderType === 'BUY' ? 'text-red-500' : 'text-blue-500')}
