@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
@@ -19,17 +20,15 @@ export const metadata: Metadata = {
   description: '실시간 환율을 확인하고, 쉽게 환전해 보세요.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={cn('min-h-screen antialiased', pretendard.className)}>
         <ToastProvider />
         <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
